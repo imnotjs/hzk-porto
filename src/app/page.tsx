@@ -81,9 +81,7 @@ export default function Home() {
           </div>
           <div className={styles.heroText}>
             <p>
-              A <strong>dreamer</strong> by night, an <strong>architect</strong> by day. 
-              I bridge the gap between abstract possibilities and high-precision execution—crafting 
-              intelligent systems that don&apos;t just process data, but <strong>understand context</strong>.
+              A <strong>dreamer</strong> by night, an <strong>architect</strong> by day. I bridge the gap between abstract possibilities and high-precision execution—crafting intelligent systems that don&apos;t just process data, but <strong>understand context</strong>.
             </p>
           </div>
         </div>
