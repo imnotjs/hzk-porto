@@ -1,9 +1,9 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, Variants } from 'framer-motion';
+import { motion, AnimatePresence, Variants } from 'framer-motion'; // FIX: Import tipe Variants
 import Lenis from '@studio-freight/lenis';
+import Image from 'next/image'; 
 import styles from './contact.module.css';
 import Navbar from '@/components/navbar';
 import Footer from '@/components/footer';
@@ -23,6 +23,12 @@ interface RepoItem {
   html_url: string;
 }
 
+interface GitHubRawRepo {
+  name: string;
+  description: string | null;
+  html_url: string;
+}
+
 export default function ContactPage() {
   const [isBookOpened, setIsBookOpened] = useState(false); 
   const [isCvUnlocked, setIsCvUnlocked] = useState(false); 
@@ -31,7 +37,7 @@ export default function ContactPage() {
   
   const lenisRef = useRef<Lenis | null>(null);
 
-  // 1. Fetching Data GitHub Latar Belakang
+  // 1. Fetching Data GitHub Latar Belakang & 3 Recent Active Projects
   useEffect(() => {
     fetch('https://api.github.com/users/imnotjs')
       .then(res => res.json())
@@ -51,7 +57,7 @@ export default function ContactPage() {
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data)) {
-          const formatted = data.map((repo: { name: string; description: string | null; html_url: string }) => ({
+          const formatted = data.map((repo: GitHubRawRepo) => ({
             name: repo.name,
             description: repo.description || "No description provided for this core repository log.",
             html_url: repo.html_url
@@ -93,7 +99,7 @@ export default function ContactPage() {
     };
   }, []);
 
-  // 3. Force Resize Trigger
+  // 3. FORCE RESIZE TRIGGER SAAT LAYOUT MEMANJANG
   useEffect(() => {
     if (lenisRef.current) {
       const interval = setInterval(() => {
@@ -112,6 +118,7 @@ export default function ContactPage() {
     }
   }, [isBookOpened, isCvUnlocked]);
 
+  // FIX: Ditambahkan anotasi tipe data 'Variants' agar array bezier curve terbaca valid oleh compiler TS
   const bookContentVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: { 
@@ -183,9 +190,7 @@ export default function ContactPage() {
                   <span className={styles.sliderTextCopy}>
                     SLIDE MY CONTACT BOOK TO OPEN
                   </span>
-                  <span className={styles.systemCodeLabel}>
-                    {"[ CODE // 0.26 ]"}
-                  </span>
+                  <span className={styles.systemCodeLabel}>[ CODE // 0.26 ]</span>
                 </div>
               </motion.div>
             )}
@@ -210,26 +215,36 @@ export default function ContactPage() {
                   rel="noopener noreferrer" 
                   className={styles.socialLinkCard}
                 >
-                  {/* FIX: Mengubah social.name menjadi social.label agar sesuai schema data json */}
-                  <span className="sr-only">{social.label || "Social Link"}</span>
+                  <div className={styles.cardMeta}>
+                    <span className={styles.cardLabel}>{social.label}</span>
+                    <span className={styles.cardSubLabel}>{social.subLabel}</span>
+                  </div>
+                  <span className={styles.arrowIcon}>↗</span>
                 </a>
               ))}
             </motion.section>
 
-            {/* SEKSI 2: GITHUB PROFILE MONITOR */}
+            {/* SEKSI 2: LIVE GITHUB LOG DATA MONITOR + 3 PINNED REPOS */}
             <motion.section className={styles.githubProfileCard} variants={bookContentVariants}>
               <div className={styles.gitHeader}>
                 {githubData ? (
                   <>
-                    <img src={githubData.avatar_url} alt="GitHub Live Core" className={styles.gitAvatar} />
+                    <Image 
+                      src={githubData.avatar_url} 
+                      alt="GitHub Live Core" 
+                      className={styles.gitAvatar}
+                      width={50}
+                      height={50}
+                      unoptimized
+                    />
                     <div className={styles.gitUserMeta}>
-                      <h3>{"[ RESOURCE // SERVER_PROFILE_DATA ]"}</h3>
+                      <h3>[ RESOURCE // SERVER_PROFILE_DATA ]</h3>
                       <p>SYSTEM ACCESS STATUS: LINKED AND MONITORED</p>
                     </div>
                   </>
                 ) : (
                   <div className={styles.gitUserMeta}>
-                    <h3>{"[ FETCHING REMOTE SERVER LOGS... ]"}</h3>
+                    <h3>[ FETCHING REMOTE SERVER LOGS... ]</h3>
                   </div>
                 )}
               </div>
@@ -251,6 +266,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
+              {/* SUB SEKSI: 3 RECENT REPOS */}
               <div className={styles.pinnedReposSection}>
                 <h4 className={styles.repoSectionTitle}>{"// RECENT_CORE_REPOSITORIES"}</h4>
                 <div className={styles.repoListStack}>
@@ -259,9 +275,7 @@ export default function ContactPage() {
                       const isLongDescription = repo.description.length > 60;
                       return (
                         <div key={i} className={styles.repoLogCard}>
-                          <span className={styles.repoTerminalPrefix}>
-                            {`> ${repo.name}`}
-                          </span>
+                          <span className={styles.repoTerminalPrefix}>&gt; {repo.name}</span>
                           <p className={styles.repoLineDesc}>
                             {isLongDescription ? `${repo.description.substring(0, 60)}...` : repo.description}
                             {isLongDescription && (
@@ -334,18 +348,15 @@ export default function ContactPage() {
                     >
                       <div className={styles.docIcon}>📄</div>
                       <h3 className={styles.docTitle}>CV Jody Hezekiah.pdf</h3>
-                      <span className={styles.docStatus}>
-                        {"DECRYPTION SUCCESSFUL // READY"}
-                      </span>
+                      <span className={styles.docStatus}>DECRYPTION SUCCESSFUL // READY</span>
                       
                       <a 
                         href="https://drive.usercontent.google.com/uc?id=1QnIt2GpR2etiAI1Ux0D2PlNgf1apTb4E&export=download" 
                         target="_blank"
                         rel="noopener noreferrer"
-                        download 
                         className={styles.downloadBtn}
                       >
-                        {"[ DOWNLOAD DOSSIER ]"}
+                        [ DOWNLOAD DOSSIER ]
                       </a>
                     </motion.div>
                   )}
