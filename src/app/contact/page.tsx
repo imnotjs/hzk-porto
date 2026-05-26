@@ -339,7 +339,7 @@ export default function ContactPage() {
                       </span>
                       
                       <a 
-                        href="https://drive.usercontent.com/uc?id=1QnIt2GpR2etiAI1Ux0D2PlNgf1apTb4E&export=download" 
+                        href="https://drive.usercontent.google.com/uc?id=1QnIt2GpR2etiAI1Ux0D2PlNgf1apTb4E&export=download" 
                         target="_blank"
                         rel="noopener noreferrer"
                         download 
