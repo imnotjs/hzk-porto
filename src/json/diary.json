@@ -1,0 +1,23 @@
+{
+  "work": [
+    {
+      "id": 1,
+      "title": "Telkomsel Regional Jatim",
+      "role": "AI Engineer Intern",
+      "date": "2025",
+      "img": "/pic/exp/telkomsel_intern_2025.jpg",
+      "desc": "Built a multimodal RAG chatbot using Gemini 2.5 Flash and FastAPI to automate IT support ticketing and troubleshooting."
+    }
+  ],
+  "community": [
+    {
+      "id": 1,
+      "title": "Abmas ITS - Mojokerto",
+      "role": "AI Trainer & Tutor",
+      "date": "2024",
+      "img": "/pic/exp/abmas_mojokerto_2024.jpg",
+      "desc": "Empowering Islamic boarding school students by teaching AI-driven tools to enhance digital learning.",
+      "link": "https://radarmojokerto.jawapos.com/berita-terbaru/2408310026/departemen-teknologi-informasi-itsgelar-abdi-masyarakat-ajarkan-pemanfaatan-ai-untuk-pembelajaran-di-pesantren"
+    }
+  ]
+}

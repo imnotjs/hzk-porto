@@ -1,0 +1,133 @@
+/* src/components/footer.module.css */
+.footerContainer {
+  padding: 0 48px 48px;
+  max-width: 100%; 
+  margin: 0 auto;
+}
+
+.footerBox {
+  background: #111;
+  border-radius: 40px;
+  padding: 100px 60px 60px; 
+  display: flex;
+  flex-direction: column;
+  gap: 120px; 
+}
+
+.footerMainCta {
+  text-align: center;
+  flex-grow: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* TRICK UTAMA: Teks disembunyikan tapi tingginya tetep nge-hold struktur box */
+.ctaHidden {
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.ctaBigText {
+  font-size: clamp(24px, 4vw, 48px);
+  color: #555;
+  margin: 0;
+  font-weight: 500;
+}
+
+.ctaMainTitle {
+  font-size: clamp(40px, 8vw, 100px);
+  color: #fff;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -2px;
+}
+
+/* KEMBALI KE DEFAULT: Distribusi kiri-kanan horizontal */
+.footerBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: 1px solid #222;
+  padding-top: 40px;
+  width: 100%;
+}
+
+.footerBrandSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.footerLogo {
+  font-family: var(--font-archivo-black), sans-serif;
+  font-size: 50px;
+  font-weight: 1000;
+  font-style: italic;
+  letter-spacing: 1px;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.copyright {
+  color: #444;
+  font-size: 14px;
+  margin: 0;
+}
+
+.footerContactGrid {
+  display: flex;
+  gap: 80px;
+}
+
+.contactItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.contactLabel {
+  font-size: 12px;
+  color: #555;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.contactValue {
+  font-size: 18px;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   RESPONSIVE ADJUSTMENTS (Sesuai Layout Awal Lo)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .footerContactGrid { 
+    gap: 40px; 
+  }
+  .ctaMainTitle { 
+    font-size: 60px; 
+  }
+}
+
+@media (max-width: 768px) {
+  .footerContainer { 
+    padding: 0 24px 24px; 
+  }
+  
+  .footerBox { 
+    padding: 60px 24px 40px; 
+    gap: 80px;
+  }
+  
+  /* Di layar HP tetep dipaksa vertikal biar ga hancur nabrak */
+  .footerBottom { 
+    flex-direction: column; 
+    align-items: flex-start; 
+    gap: 40px; 
+  }
+  
+  .footerContactGrid { 
+    flex-direction: column; 
+    gap: 24px; 
+  }
+}

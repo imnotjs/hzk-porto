@@ -1,0 +1,506 @@
+/* app/page.module.css */
+.container {
+  min-height: 100vh;
+  background: #0a0a0a;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   HERO SECTION (DESKTOP)
+   ========================================================================== */
+.hero {
+  min-height: 100vh;
+  padding: 0 48px; 
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 100px; /* Jarak horizontal antar kolom di desktop */
+  align-items: center;
+  width: 100%;
+}
+
+.titleWrapper {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.heroTitle {
+  /* Besarin dikit dari clamp(60px, 9vw, 150px) -> clamp(70px, 10vw, 170px) */
+  font-size: clamp(70px, 10vw, 170px);
+  font-weight: 300; 
+  line-height: 0.95; 
+  letter-spacing: -0.03em;
+  margin: 0;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.heroText {
+  text-align: right; 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.heroText strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+.heroText p {
+  font-size: 22px;
+  line-height: 1.6;
+  color: #888;
+  max-width: 500px;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.cursor {
+  font-weight: 100;
+  color: #fff;
+  animation: blink 1s step-end infinite;
+  margin-left: 8px;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes blink {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ==========================================================================
+   ABOUT SECTION
+   ========================================================================== */
+.about {
+  padding: 160px 48px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: center;
+}
+
+.photoFrameContainer {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.photoFrame {
+  border: 1px solid #222;
+  padding: 24px;
+  background: #0f0f0f;
+  border-radius: 40px; 
+  position: relative;
+  transition: all 0.4s ease;
+  width: 100%;
+  max-width: 450px;
+}
+
+.photoFrame:hover {
+  border-color: #444;
+  transform: translateY(-5px);
+}
+
+.imagePlaceholder {
+  width: 100%;
+  aspect-ratio: 3/4; 
+  background: #1a1a1a;
+  border-radius: 24px; 
+  overflow: hidden;
+  position: relative; /* WAJIB: Menjadi jangkar penahan untuk posisi gambar fill */
+}
+
+.profileImage {
+  object-fit: cover; /* Memastikan foto terpotong proporsional mengikuti rasio 3:4 tanpa gepeng */
+  object-position: center; /* Kunci fokus foto tepat di tengah */
+}
+
+.frameName {
+  margin-top: 24px;
+  font-family: var(--font-michroma), sans-serif;
+  font-size: 14px;
+  font-style: normal; 
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #666;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.sectionLabel {
+  font-size: 14px;
+  letter-spacing: 3px;
+  color: #444;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.aboutBio {
+  font-size: 24px;
+  line-height: 1.5;
+  color: #ccc;
+  margin-bottom: 40px;
+}
+
+/* --- TECH STACK PILLS --- */
+.techStackContainer {
+  margin-top: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.techGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.groupLabel {
+  font-family: var(--font-michroma), sans-serif;
+  font-size: 10px;
+  color: #ccc;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  opacity: 0.8;
+  padding-left: 4px;
+}
+
+.iconGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.stackBadge {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid #1a1a1a;
+  border-radius: 100px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: crosshair;
+}
+
+.underglow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, var(--glow-color) 0%, transparent 80%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+.techIconSmall {
+  width: 20px;
+  height: 15px;
+  object-fit: contain;
+  filter: grayscale(100%) brightness(140%);
+  opacity: 0.5;
+  transition: all 0.4s ease;
+  z-index: 1;
+}
+
+.techName {
+  font-size: 13px;
+  font-weight: 400;
+  color: #555;
+  letter-spacing: 0.8px;
+  z-index: 1;
+  transition: all 0.4s ease;
+  font-family: var(--font-inter), sans-serif;
+}
+
+.stackBadge:hover {
+  border-color: var(--glow-color);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.stackBadge:hover .underglow {
+  opacity: 0.12;
+}
+
+.stackBadge:hover .techIconSmall {
+  filter: grayscale(100%) brightness(255%);
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.stackBadge:hover .techName {
+  color: #fff;
+  letter-spacing: 1.2px;
+}
+
+/* ==========================================================================
+   SHOWCASE / PORTFOLIO SECTION (DESKTOP)
+   ========================================================================== */
+.portfolio {
+  padding: 60px 48px 100px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.showcaseHeader {
+  margin-bottom: 60px;
+  text-align: left;
+}
+
+.showcaseTitle {
+  font-size: 80px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -2px;
+}
+
+.showcaseSub {
+  font-size: 18px;
+  color: #666;
+  max-width: 600px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.projectCard {
+  background: #111;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.projectCard:hover {
+  transform: translateY(-10px);
+}
+
+.projectImage {
+  width: 100%;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  filter: grayscale(100%);
+  transition: filter 0.5s ease;
+}
+
+.projectCard:hover .projectImage {
+  filter: grayscale(0%);
+}
+
+.projectImagePlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholderLabel {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.projectInfo {
+  padding: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.projectTitle {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.tag {
+  padding: 6px 16px;
+  background: #222;
+  border-radius: 20px;
+  font-size: 12px;
+  color: #888;
+  margin-left: 8px;
+}
+
+/* ==========================================================================
+   FINAL CTA SECTION
+   ========================================================================== */
+.finalCta {
+  padding: 200px 48px;
+  text-align: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.ctaHeading {
+  font-size: clamp(40px, 6vw, 80px);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 60px;
+}
+
+.ctaHeading span {
+  color: #555;
+}
+
+.largeCta {
+  padding: 24px 60px;
+  font-size: 20px;
+  font-weight: 600;
+  background: #fff;
+  color: #000;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.largeCta:hover {
+  transform: scale(1.1);
+}
+
+/* ==========================================================================
+   AGRESIF RESPONSIVE BREAKPOINT (Layar < 1280px / Laptop Ringkas / Tablet)
+   ========================================================================== */
+@media (max-width: 1279px) {
+  .hero {
+    padding: 160px 32px 60px; /* Ditambah biar nafas atas longgar */
+    min-height: auto;
+  }
+
+  .heroContent {
+    grid-template-columns: 1fr; 
+    gap: 48px; /* GAP UTAMA KESELURUHAN diperbesar */
+    align-items: flex-start;
+  }
+
+  .titleWrapper {
+    justify-content: flex-start;
+    width: 100%;
+    margin-bottom: 12px; /* EKSTRA GAP: Pemisah tambahan tepat di bawah teks ketikan */
+  }
+
+  .heroTitle {
+    font-size: clamp(65px, 13vw, 130px); /* Ukuran teks Heze / Hezekiah diperbesar agresif */
+    white-space: normal; 
+    text-align: left;
+  }
+
+  .heroText {
+    text-align: left !important; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start !important; 
+    width: 100%;
+    margin-top: 10px; /* Menjamin gap tebal ke deskripsi "A dreamer..." */
+  }
+
+  .heroText p {
+    max-width: 100%; 
+    font-size: 21px;
+    line-height: 1.6;
+  }
+
+  .about {
+    padding: 100px 32px;
+  }
+
+  .aboutGrid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .photoFrameContainer {
+    justify-content: center;
+  }
+
+  .aboutBio {
+    font-size: 20px;
+  }
+}
+
+/* ==========================================================================
+   TABLET RESPONSIVE BREAKPOINT
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .grid { 
+    grid-template-columns: 1fr; /* Mulai baris tunggal vertikal 4x1 di tablet */
+    gap: 28px;
+  }
+  .showcaseTitle {
+    font-size: 64px;
+  }
+}
+
+/* ==========================================================================
+   MOBILE HP RESPONSIVE BREAKPOINT (Optimasi Ukuran Box Showcase Mobile)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .hero { padding: 130px 24px 40px; }
+  .about { padding: 60px 24px; }
+  .finalCta { padding: 100px 24px; }
+  
+  .showcaseTitle { font-size: 42px; }
+  .ctaHeading { font-size: 32px; }
+  
+  .largeCta {
+    padding: 18px 40px;
+    font-size: 16px;
+  }
+
+  /* --- REKAYASA SIZE BOX SHOWCASE SMARTPHONE (Lebih Compact & Clean) --- */
+  .portfolio { 
+    padding: 40px 24px; 
+  }
+
+  .grid {
+    grid-template-columns: 1fr; /* Tetap 1 baris, 4 item berjejer kebawah */
+    gap: 20px; /* Jarak antar kartu dipersempit agar efisien */
+  }
+
+  .projectCard {
+    border-radius: 14px; /* Sudut lengkungan box dikecilkan biar proporsional */
+  }
+
+  .projectImage {
+    aspect-ratio: 16/9; /* Ubah rasio sedikit lebih tipis di HP */
+  }
+
+  .placeholderLabel {
+    font-size: 12px; /* Ukuran teks di dalam box dikecilkan */
+    letter-spacing: 1px;
+  }
+
+  .projectInfo {
+    padding: 18px; /* Padding teks pembungkus info dalam box dikecilkan */
+  }
+
+  .projectTitle {
+    font-size: 18px; /* Font heading title di dalam box diperkecil */
+  }
+
+  .tag {
+    padding: 4px 12px; /* Pill tag disesuaikan ukurannya */
+    font-size: 11px;
+  }
+}

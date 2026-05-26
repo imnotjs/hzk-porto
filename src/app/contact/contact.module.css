@@ -1,0 +1,465 @@
+/* src/app/contact/contact.module.css */
+
+.container {
+  min-height: 100vh;
+  background: #0a0a0a;
+  color: #fff;
+}
+
+.main {
+  padding: 100px 48px 0 48px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.hero {
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.heroTitle {
+  font-size: clamp(60px, 8vw, 120px);
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.heroSub {
+  color: #666;
+  font-size: 18px;
+  margin-top: 10px;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+/* FIX: BUAT INTERACTIVE WRAPPER JADI GRID STACK */
+.interactiveWrapper {
+  position: relative;
+  margin-top: 40px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.interactiveWrapper,
+.interactiveWrapper button,
+.interactiveWrapper a,
+.interactiveWrapper p,
+.interactiveWrapper h3,
+.interactiveWrapper h4,
+.interactiveWrapper span,
+.interactiveWrapper div {
+  font-family: monospace !important;
+}
+
+/* TRACK GATES UTAMA STACKED AT THE SAME POSITION */
+.swipeGateArea {
+  grid-area: 1 / 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 120px 0;
+  user-select: none;
+  z-index: 10;
+  background: #0a0a0a; /* Menutupi content hub di bawahnya */
+  height: 60vh; /* Memastikan area swipe punya tinggi ideal saat stand-alone */
+}
+
+.minimalSliderTrack {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 1px dashed #222;
+  padding-bottom: 12px;
+  transition: border-color 0.3s ease;
+}
+
+.swipeGateArea:hover .minimalSliderTrack {
+  border-color: #ff4d4f;
+}
+
+.arrowIndicator {
+  font-size: 1.5rem;
+  color: #ff4d4f;
+  font-weight: bold;
+}
+
+.sliderTextCopy {
+  font-size: 0.85rem;
+  color: #777;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.swipeGateArea:hover .sliderTextCopy {
+  color: #fff;
+}
+
+.systemCodeLabel {
+  font-size: 0.7rem;
+  color: #333;
+}
+
+/* FIX: VERTICAL HUB STANDBY DI BACKGROUND UNTUK CORNERSTONE HEIGHT */
+.verticalHub {
+  grid-area: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding-bottom: 160px;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* State management visual hub */
+.hubInactive {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+}
+
+.hubActive {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* SOCIALS LINKS GRID */
+.linksGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.socialLinkCard {
+  background: #141414;
+  border: 1px solid #262626;
+  padding: 24px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.socialLinkCard:hover {
+  background: #1a1a1a;
+  border-color: #f5f5f5;
+  transform: translateX(6px);
+}
+
+.cardMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cardLabel {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.cardSubLabel {
+  font-size: 0.7rem;
+  color: #555;
+  letter-spacing: 1px;
+}
+
+.arrowIcon {
+  font-size: 1.2rem;
+  color: #434343;
+}
+
+.socialLinkCard:hover .arrowIcon {
+  color: #f5f5f5;
+}
+
+/* GITHUB LIVE MONITOR */
+.githubProfileCard {
+  background: #141414;
+  border: 1px solid #262626;
+  border-radius: 4px;
+  padding: 24px;
+}
+
+.gitHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #262626;
+}
+
+.gitAvatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 4px;
+  border: 1px solid #333;
+}
+
+.gitUserMeta h3 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.gitUserMeta p {
+  font-size: 0.75rem;
+  color: #555;
+  margin: 4px 0 0 0;
+}
+
+.gitStatsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  background: #0a0a0a;
+  padding: 16px;
+  border-radius: 4px;
+  border: 1px solid #262626;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.statLabel {
+  font-size: 0.65rem;
+  color: #666;
+  text-transform: uppercase;
+}
+
+.statValue {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #ff4d4f;
+}
+
+/* REPO SUB-SECTION */
+.pinnedReposSection {
+  margin-top: 24px;
+  border-top: 1px dashed #262626;
+  padding-top: 20px;
+}
+
+.repoSectionTitle {
+  font-size: 0.75rem;
+  color: #555;
+  letter-spacing: 1px;
+  margin: 0 0 16px 0;
+}
+
+.repoListStack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.repoLogCard {
+  background: #0a0a0a;
+  border: 1px solid #262626;
+  padding: 14px;
+  border-radius: 4px;
+}
+
+.repoTerminalPrefix {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #fff;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.repoLineDesc {
+  font-size: 0.75rem;
+  color: #888;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.repoMoreLink {
+  color: #666;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 6px;
+  transition: color 0.2s ease;
+}
+
+.repoMoreLink:hover {
+  color: #ff4d4f;
+}
+
+.repoLoadingText {
+  font-size: 0.75rem;
+  color: #444;
+  margin: 0;
+}
+
+/* BRIEFCASE CARD AREA */
+.briefcaseCard {
+  background: #141414;
+  border: 1px solid #262626;
+  border-radius: 4px;
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+}
+
+.briefcaseHeader {
+  background: #1a1a1a;
+  padding: 12px 16px;
+  border-bottom: 1px solid #262626;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: #ff4d4f;
+  border-radius: 50%;
+}
+
+.panelTitle {
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  color: #666;
+}
+
+.lockContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.lockIcon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+.lockText {
+  font-size: 0.85rem;
+  color: #ff4d4f;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+}
+
+.sliderTrack {
+  position: relative;
+  width: 260px;
+  height: 50px;
+  background: #0a0a0a;
+  border: 1px solid #333;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+  overflow: hidden;
+}
+
+.sliderHandle {
+  width: 42px;
+  height: 42px;
+  background: #ff4d4f;
+  color: #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: grab;
+  z-index: 3;
+  box-shadow: 0 0 10px rgba(255, 77, 79, 0.4);
+}
+
+.trackText {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-size: 0.7rem;
+  color: #555;
+  letter-spacing: 1px;
+  z-index: 1;
+  pointer-events: none;
+  text-transform: uppercase;
+}
+
+.unlockedContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+}
+
+.docIcon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.docTitle {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #f5f5f5;
+  margin-bottom: 6px;
+}
+
+.docStatus {
+  font-size: 0.7rem;
+  color: #52c41a;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+}
+
+.downloadBtn {
+  background: #f5f5f5;
+  color: #000;
+  padding: 14px 28px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+
+.downloadBtn:hover {
+  background: #52c41a;
+  color: #000;
+  box-shadow: 0 0 15px rgba(82, 196, 26, 0.4);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .main { 
+    padding: 80px 24px 0 24px; 
+  }
+  .linksGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}

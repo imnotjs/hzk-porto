@@ -1,0 +1,197 @@
+/* app/projects/projects.module.css */
+.container {
+  min-height: 100vh;
+  background: #0a0a0a;
+  color: #fff;
+}
+
+.main {
+  padding: 100px 48px 0 48px; 
+  max-width: 1000px; 
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+.hero {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.heroTitle {
+  font-size: clamp(75px, 11vw, 150px);
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  margin: 0;
+  line-height: 1;
+}
+
+.heroSub {
+  color: #666;
+  font-size: clamp(16px, 1.8vw, 24px); 
+  margin-top: 16px;
+  max-width: 700px;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   CONTAINER BAR TAGS (VIRTUAL INERTIA ENGINE CONFIG)
+   ========================================================================== */
+.filterBarWrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 80px;
+  overflow: hidden; /* Potong sisa rel di luar viewport */
+  touch-action: pan-y; /* Kunci sumbu X murni untuk physics kita, sumbu Y bebas buat scroll page */
+}
+
+.hasMask {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
+}
+
+.filterBar {
+  display: flex;
+  flex-wrap: nowrap; 
+  gap: 16px;
+  align-items: center;
+  width: max-content; /* Paksa rel memanjang sesuai akumulasi tombol */
+  padding: 15px 0;
+  will-change: transform; /* Pindahkan beban kalkulasi translasi matriks langsung ke GPU */
+}
+
+/* STATE 1: JIKA MUAT SATU LINE */
+.isCentered {
+  width: 100%;
+  justify-content: center;
+}
+
+/* STATE 2: JIKA MELUAP / OVERFLOWING */
+.canScroll {
+  cursor: grab;
+}
+
+.filterBtn {
+  background: transparent;
+  border: 1px solid #222;
+  color: #666;
+  padding: 10px 24px;
+  border-radius: 100px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: border-color 0.3s, color 0.3s;
+  white-space: nowrap; 
+  flex-shrink: 0; 
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.filterBtn.active, .filterBtn:hover {
+  border-color: #fff;
+  color: #fff;
+}
+
+/* ==========================================================================
+   PROJECT LIST & CARD MODULAR STYLING
+   ========================================================================== */
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-bottom: 100px;
+  perspective: 2000px; 
+}
+
+.projectItem {
+  border-bottom: 1px solid #1a1a1a;
+  padding-bottom: 40px;
+  transition: border-color 0.3s;
+}
+
+.projectItem:hover {
+  border-color: #333;
+}
+
+.itemHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.projectTitle {
+  font-size: 32px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.githubBtn {
+  font-size: 12px;
+  color: #888;
+  text-decoration: none;
+  letter-spacing: 1px;
+  padding: 4px 10px;
+  border: 1px solid #222;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.githubBtn:hover {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+.projectDesc {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #888;
+  max-width: 800px;
+  margin-bottom: 20px;
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 12px;
+}
+
+.tag {
+  font-size: 13px;
+  color: #444;
+  font-family: var(--font-michroma), sans-serif;
+}
+
+/* ==========================================================================
+   RESPONSIVE SMARTPHONE BREAKPOINT
+   ========================================================================== */
+@media (max-width: 768px) {
+  .main { 
+    padding: 0 24px; 
+  }
+  
+  .heroTitle {
+    font-size: clamp(65px, 14vw, 95px); 
+    font-weight: 400; 
+    letter-spacing: -0.02em;
+  }
+
+  .heroSub {
+    font-size: 16px;
+    padding: 0 10px;
+    margin-top: 12px;
+  }
+
+  .filterBarWrapper {
+    margin-bottom: 50px; 
+  }
+
+  .projectTitle { font-size: 24px; }
+  .projectDesc { font-size: 16px; }
+}

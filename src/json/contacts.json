@@ -1,0 +1,29 @@
+{
+  "status": "Available for deployment. Focused on Data Science, Computer Vision, and Digital Transformation.",
+  "socials": [
+    {
+      "id": "github",
+      "label": "GITHUB ARCHIVE",
+      "subLabel": "GIT-LOG // SOURCE INSPECTION",
+      "url": "https://github.com/imnotjs"
+    },
+    {
+      "id": "linkedin",
+      "label": "LINKEDIN NETWORK",
+      "subLabel": "PROFESSIONAL ID // CORPORATE SYNC",
+      "url": "https://id.linkedin.com/in/imnotjs"
+    },
+    {
+      "id": "whatsapp",
+      "label": "WHATSAPP DIRECT",
+      "subLabel": "SECURE LINE // HOTLINE EXECUTION",
+      "url": "https://wa.me/6281272518885?text=Halo%20Hezekiah%2C%20saya%20tertarik%20dengan%20portofolio%20Anda%20dan%20ingin%20mendiskusikan%20peluang%20kolaborasi."
+    },
+    {
+      "id": "instagram",
+      "label": "INSTAGRAM FEED",
+      "subLabel": "REAL-WORLD CONTEXT // IRL DOCUMENTARY",
+      "url": "https://www.instagram.com/im.notjs/"
+    }
+  ]
+}

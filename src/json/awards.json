@@ -1,0 +1,22 @@
+{
+  "awards": [
+    {
+      "id": 1,
+      "title": "Top 50 Finish on Platypwn 2024 (33rd position)",
+      "institution": "Hasso Plattner Institute",
+      "description": "Secured top position by exploiting cryptographic vulnerabilities and reverse-engineering complex binaries under high-pressure socio-context scenarios.",
+      "tags": ["Cyber Security", "Cryptography"],
+      "teamName": "FP Pak Hatma",
+      "leaderboard": "https://ctftime.org/team/365618"
+    },
+    {
+      "id": 2,
+      "title": "Top 20% Finish on MCF ITB 2026 DSC",
+      "institution": "Institut Teknologi Bandung",
+      "description": "Developed an optimized multi-object tracking algorithm benchmarking YOLOv8 and StrongSORT architectures for dynamic human behavior analysis.",
+      "tags": ["Prediction", "Deep Learning"],
+      "teamName": "Mas Heze iki lho rek",
+      "leaderboard": "https://www.kaggle.com/competitions/data-science-competition-mathematical-challenge-festival-itb-2026/leaderboard?search=Mas+Heze+iki+lho+rek"
+    }
+  ]
+}

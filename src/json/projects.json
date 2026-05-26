@@ -1,0 +1,25 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Omni-FaceSORT",
+      "description": "High-precision student attendance system using YOLOv8 and StrongSORT with OSNet for robust re-identification.",
+      "tags": ["Computer Vision", "AI Architecture"],
+      "github": "https://github.com/hzk/omni-facesort"
+    },
+    {
+      "id": 2,
+      "title": "VIRA AI Engine",
+      "description": "Contemplative AI persona development utilizing RawNet3 for voice biometric validation and AASIST.",
+      "tags": ["Applied AI", "Deep Learning"],
+      "github": "https://github.com/hzk/vira-ai"
+    },
+    {
+      "id": 3,
+      "title": "Socio-Contextual Analysis Toolkit",
+      "description": "An automated framework to analyze social dynamics in public surveillance footage.",
+      "tags": ["Computer Vision", "Analysis"],
+      "github": "https://github.com/hzk/socio-analysis"
+    }
+  ]
+}

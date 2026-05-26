@@ -1,0 +1,64 @@
+{
+  "techGroups": [
+    {
+      "id": "01",
+      "label": "CORE",
+      "category": "Main Powerhouse",
+      "glowColor": "#cbd5e1", 
+      "techs": [
+        {
+          "name": "Python",
+          "icon": "/icons/tech/python.svg"
+        },
+        {
+          "name": "PostgreSQL",
+          "icon": "/icons/tech/postgresql.svg"
+        }
+      ]
+    },
+    {
+      "id": "02",
+      "label": "INTERFACE",
+      "category": "Architects",
+      "glowColor": "#22d3ee",
+      "techs": [
+        {
+          "name": "Next.js",
+          "icon": "/icons/tech/nextjs.svg"
+        },
+        {
+          "name": "Flutter",
+          "icon": "/icons/tech/flutter.svg"
+        }
+      ]
+    },
+    {
+      "id": "03",
+      "label": "INTELLIGENCE",
+      "category": "Neural Engine",
+      "glowColor": "#f59e0b",
+      "techs": [
+        {
+          "name": "PyTorch",
+          "icon": "/icons/tech/pytorch.svg"
+        },
+        {
+          "name": "TensorFlow",
+          "icon": "/icons/tech/tensorflow.svg"
+        },
+        {
+          "name": "OpenCV",
+          "icon": "/icons/tech/opencv.svg"
+        },
+        {
+          "name": "Ultralytics",
+          "icon": "/icons/tech/ultralytics.svg"
+        },
+        {
+          "name": "Ollama",
+          "icon": "/icons/tech/ollama.svg"
+        }
+      ]
+    }
+  ]
+}

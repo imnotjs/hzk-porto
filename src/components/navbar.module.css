@@ -1,0 +1,206 @@
+/* src/components/navbar.module.css */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 48px;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, background 0.3s ease;
+}
+
+.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+/* Biar pas menu mobile/tab kebuka background-nya solid gahar */
+.menuOpen {
+  background: rgba(10, 10, 10, 0.98) !important;
+}
+
+.logo {
+  font-family: var(--font-michroma), sans-serif;
+  font-size: 36px;
+  font-weight: 1000;
+  font-style: italic;
+  letter-spacing: 1px;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  z-index: 1001; /* Di atas overlay menu */
+}
+
+.logo:hover {
+  opacity: 0.8;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 60px; 
+}
+
+.navLinks {
+  display: flex;
+  gap: 36px;
+}
+
+.navLinks a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  opacity: 0.7;
+  display: inline-block;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  letter-spacing: 0px;
+  padding: 0 8px; 
+}
+
+.navLinks a:hover {
+  opacity: 1;
+  letter-spacing: 1px;
+  padding: 0 6px; 
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+}
+
+.ctaButton {
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.ctaButton:hover {
+  transform: scale(1.05);
+  background: #f0f0f0;
+}
+
+/* ==========================================================================
+   HAMBURGER BUTTON TRIGGER (Hidden on Standard Desktop)
+   ========================================================================== */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001; /* Tetap tembus di atas panel menu */
+}
+
+.bar {
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 10px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Animasi transisi garis 3 jadi Silang (X) */
+.hamburgerActive .bar:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.hamburgerActive .bar:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.hamburgerActive .bar:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* ==========================================================================
+   AGRESIF RESPONSIVE BREAKPOINT (Layar di bawah 1280px otomatis collapse)
+   ========================================================================== */
+@media (max-width: 1279px) {
+  .header { 
+    padding: 24px 32px; 
+  }
+
+  .logo {
+    font-size: 30px; /* Penyesuaian ukuran teks logo */
+  }
+
+  .hamburger {
+    display: flex; /* Aktifkan hamburger menu di laptop kecil & tablet */
+  }
+
+  /* Rombak navigasi horizontal jadi fullscreen dropdown overlay */
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background: rgba(10, 10, 10, 0.98);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+    padding: 40px;
+    
+    /* Logic Slide Hide/Show Menu */
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+  }
+
+  /* Saat Menu Aktif (State Terbuka) */
+  .navActive {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .navLinks {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .navLinks a {
+    font-size: 24px; /* Ukuran link diperbesar biar enak di-touch/click */
+    opacity: 0.8;
+  }
+
+  .navLinks a:hover {
+    letter-spacing: 2px;
+    padding: 0 8px;
+  }
+
+  .ctaButton {
+    width: 80%;
+    max-width: 280px;
+    padding: 16px 0;
+    font-size: 18px;
+  }
+}
